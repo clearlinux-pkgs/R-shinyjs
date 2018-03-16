@@ -4,12 +4,12 @@
 #
 Name     : R-shinyjs
 Version  : 1.0
-Release  : 1
+Release  : 2
 URL      : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Summary  : Easily Improve the User Experience of Your Shiny Apps in Seconds
 Group    : Development/Tools
-License  : AGPL-3 MIT
+License  : AGPL-3.0 MIT
 Requires: R-htmltools
 Requires: R-jsonlite
 Requires: R-shiny
@@ -29,11 +29,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521239620
+export SOURCE_DATE_EPOCH=1521239763
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521239620
+export SOURCE_DATE_EPOCH=1521239763
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
