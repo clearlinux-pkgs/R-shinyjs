@@ -1,7 +1,9 @@
 1.0
+R-assertthat
 R-evaluate
 R-htmltools
 R-jsonlite
+R-markdown
 R-mime
 R-shiny
 R-stringi

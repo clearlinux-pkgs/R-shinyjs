@@ -4,21 +4,19 @@
 #
 Name     : R-shinyjs
 Version  : 1.0
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Summary  : Easily Improve the User Experience of Your Shiny Apps in Seconds
 Group    : Development/Tools
 License  : AGPL-3.0 MIT
-Requires: R-evaluate
-Requires: R-htmltools
-Requires: R-jsonlite
-Requires: R-mime
-Requires: R-shiny
-Requires: R-stringi
+Requires: R-assertthat
+Requires: R-markdown
+BuildRequires : R-assertthat
 BuildRequires : R-evaluate
 BuildRequires : R-htmltools
 BuildRequires : R-jsonlite
+BuildRequires : R-markdown
 BuildRequires : R-mime
 BuildRequires : R-shiny
 BuildRequires : R-stringi
@@ -38,10 +36,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552847896
+export SOURCE_DATE_EPOCH=1552851878
 
 %install
-export SOURCE_DATE_EPOCH=1552847896
+export SOURCE_DATE_EPOCH=1552851878
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
