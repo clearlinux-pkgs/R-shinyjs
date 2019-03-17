@@ -4,22 +4,31 @@
 #
 Name     : R-shinyjs
 Version  : 1.0
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Summary  : Easily Improve the User Experience of Your Shiny Apps in Seconds
 Group    : Development/Tools
 License  : AGPL-3.0 MIT
+Requires: R-evaluate
 Requires: R-htmltools
 Requires: R-jsonlite
+Requires: R-mime
 Requires: R-shiny
+Requires: R-stringi
+BuildRequires : R-evaluate
 BuildRequires : R-htmltools
 BuildRequires : R-jsonlite
+BuildRequires : R-mime
 BuildRequires : R-shiny
-BuildRequires : clr-R-helpers
+BuildRequires : R-stringi
+BuildRequires : buildreq-R
 
 %description
-greatly improve your apps without having to know any JavaScript. Examples
+<p align="center">
+<a href="https://deanattali.com/shinyjs/">
+<img src="inst/img/shinyjs-logo-whitebg-small.png" alt="shinyjs" width=285 height=100 />
+</a>
 
 %prep
 %setup -q -c -n shinyjs
@@ -29,11 +38,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521239763
+export SOURCE_DATE_EPOCH=1552847896
 
 %install
+export SOURCE_DATE_EPOCH=1552847896
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521239763
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -68,8 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library shinyjs|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  shinyjs || :
 
 
 %files
@@ -131,3 +139,10 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/shinyjs/img/shinyjs-logo-whitebg-small.png
 /usr/lib64/R/library/shinyjs/srcjs/inject.js
 /usr/lib64/R/library/shinyjs/srcjs/shinyjs-default-funcs.js
+/usr/lib64/R/library/shinyjs/tests/test-empty.js
+/usr/lib64/R/library/shinyjs/tests/test-error.js
+/usr/lib64/R/library/shinyjs/tests/test-nofunc.js
+/usr/lib64/R/library/shinyjs/tests/test-success.js
+/usr/lib64/R/library/shinyjs/tests/testthat.R
+/usr/lib64/R/library/shinyjs/tests/testthat/test-extendShinyjs.R
+/usr/lib64/R/library/shinyjs/tests/testthat/test-hidden.R
