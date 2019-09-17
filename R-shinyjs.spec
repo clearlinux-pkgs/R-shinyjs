@@ -4,29 +4,24 @@
 #
 Name     : R-shinyjs
 Version  : 1.0
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/shinyjs_1.0.tar.gz
 Summary  : Easily Improve the User Experience of Your Shiny Apps in Seconds
 Group    : Development/Tools
 License  : AGPL-3.0 MIT
-Requires: R-rlang
-BuildRequires : R-assertthat
-BuildRequires : R-evaluate
+Requires: R-digest
+Requires: R-htmltools
+Requires: R-jsonlite
+Requires: R-shiny
+BuildRequires : R-digest
 BuildRequires : R-htmltools
 BuildRequires : R-jsonlite
-BuildRequires : R-markdown
-BuildRequires : R-mime
-BuildRequires : R-rlang
 BuildRequires : R-shiny
-BuildRequires : R-stringi
 BuildRequires : buildreq-R
 
 %description
-<p align="center">
-<a href="https://deanattali.com/shinyjs/">
-<img src="inst/img/shinyjs-logo-whitebg-small.png" alt="shinyjs" width=285 height=100 />
-</a>
+greatly improve your apps without having to know any JavaScript. Examples
 
 %prep
 %setup -q -c -n shinyjs
@@ -35,13 +30,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552941583
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1568750032
 
 %install
-export SOURCE_DATE_EPOCH=1552941583
+export SOURCE_DATE_EPOCH=1568750032
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -70,12 +65,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  shinyjs || :
+R CMD check --no-manual --no-examples --no-codoc shinyjs || :
 
 
 %files
