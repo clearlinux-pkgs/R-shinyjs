@@ -4,7 +4,7 @@
 #
 Name     : R-shinyjs
 Version  : 1.1
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/shinyjs_1.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/shinyjs_1.1.tar.gz
 Summary  : Easily Improve the User Experience of Your Shiny Apps in Seconds
